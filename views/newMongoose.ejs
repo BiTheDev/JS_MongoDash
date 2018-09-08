@@ -10,6 +10,12 @@
     <!-- <script src="main.js"></script> -->
 </head>
 <body>
+    <% JSON.stringify(messages) %>
+    <% if(messages.validation) { %>
+        <% for (var x of messages.validation) { %>
+            <h3 style="color:red;"><%= x %></h3>
+        <% } %>
+    <% } %>
     <form action="/mongooses" method="POST">
         <p>Name: <input type="text" name="name"></p>
         <p>Color: <input type="text" name="color"></p>

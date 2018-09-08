@@ -49,12 +49,15 @@ function Create(req, res){
         if(errs){
             console.log("You Suck");
             console.log(errs);
-            
+            for(var key in errs.errors){
+                req.flash('validation', errs.errors[key].message);
+            }
+            res.redirect("/mongooses/new")
         }else{
             console.log(results);
+            res.redirect("/");
             
         }
-        res.redirect("/");
     })
 }
 function Edit(req,res){
